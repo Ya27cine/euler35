@@ -21,10 +21,21 @@ const euler = {
 				if(nb%(i-1)==0 || nb%(i+1)==0) // ignore multiples of single numbers
 				   	return false;
 			return true;
-    },
-    isCircular: prime => { 	
-    },
-    offset: nb => { 
+   },
+   isCircular: prime => { 
+	   		let roll = prime.toString().length;
+			if( roll < 2 ) 
+			   return false;
+		   	for (let i = 1; i < roll; i++) {
+		   		let nb_test = euler.offset( prime );
+				if ( ! nbs_gr[ nb_test ] ) 
+					return false// nb_test isn't circular prime
+				else   
+					prime = nb_test;// nb_test > circular prime
+		   	}
+		   	return true;
+   },
+   offset: nb => { 
 	   		const last_digit = nb % 10; // take the last digit 		  
 			nb =  parseInt(nb / 10); // delete the last digit 
 			return  last_digit * (10 ** nb.toString().length) + nb ;
