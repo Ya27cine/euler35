@@ -1,3 +1,7 @@
+/*
+ * @author  Khelifa Yassine
+ */
+
 var  nbs_gr = []
 var  limit  = 10**6; // one million
 var  result = 4; // 2,3,5,7
