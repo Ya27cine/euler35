@@ -2,13 +2,18 @@ var  nbs_gr = []
 var  limit  = 10**6; // one million
 var  result = 4; // 2,3,5,7
 
+
 const euler = {
     __init: () => { 
 			for(let nb = 0; nb < limit; nb++) 
 				nbs_gr.push( euler.isPrime(nb) );  
     },
 	start: () => { 
-		    
+		    for(let nb =10; nb < nbs_gr.length; nb++ )  
+				if( !  nbs_gr[ nb ] )    
+			   		continue;// nb isn't a prime number
+				else 
+				   result += euler.isCircular( nb );// nb is a circular prime
     },
     isPrime: nb => { 
 			if(nb < 2) return false;
